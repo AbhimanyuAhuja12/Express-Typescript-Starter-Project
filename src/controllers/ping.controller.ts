@@ -1,5 +1,8 @@
 import { Request, Response } from "express";
-export const pingHandler = (req: Request, res: Response) => {
-    res.send('pong');
+import logger from "../config/logger.config";
+
+export const pingHandler = async (req: Request, res: Response) => {
+    logger.info("Ping request received");
+    res.status(200).json({ message: "Pong!" });
 };
 
